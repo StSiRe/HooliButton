@@ -67,8 +67,8 @@ void HooliButton::Tick()
         pressStop = millis();
         pressTime = pressStop - pressStart;//Общее время отпуска
         counter++;
-        pressStart = 0;
-        pressStop = 0;
+        //pressStart = 0;
+        //pressStop = 0;
         if(pressTime > pressMS)
         {
             if(pressStopFunc)            
