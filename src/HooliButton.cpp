@@ -24,6 +24,7 @@ void HooliButton::Tick()
     }
     if(currentState == true && (millis() - pressStart) > pressMS)
     {
+        pressTime = millis() - pressStart;
         buttonHolded = true;
         if(pressStartFunc)
         {
@@ -66,11 +67,13 @@ void HooliButton::Tick()
         pressStop = millis();
         pressTime = pressStop - pressStart;//Общее время отпуска
         counter++;
+        pressStart = 0;
+        pressStop = 0;
         if(pressTime > pressMS)
         {
             if(pressStopFunc)            
             {
-                pressStopFunc();         
+                pressStopFunc();//Вызываем событие с  
             }
         }
     }    
